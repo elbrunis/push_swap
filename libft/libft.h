@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:48:23 by biniesta          #+#    #+#             */
-/*   Updated: 2024/12/25 15:45:43 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:17:38 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@
 # include <fcntl.h>
 # include <stdarg.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 int					ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);
@@ -68,11 +63,11 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstnew(void *content);
+// t_list				*ft_lstlast(t_list *lst);
+// void				ft_lstadd_back(t_list **lst, t_list *new);
+// void				ft_lstadd_front(t_list **lst, t_list *new);
+// int					ft_lstsize(t_list *lst);
+// t_list				*ft_lstnew(void *content);
 // get next line
 char	*free_and_join(char *save, char *read);
 char	*create_line(char *save);
