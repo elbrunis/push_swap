@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/02/27 13:49:10 by biniesta         ###   ########.fr       */
+/*   Created: 2025/02/28 14:57:51 by biniesta          #+#    #+#             */
+/*   Updated: 2025/02/28 15:49:06 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-int	main(int argc, char **argv)
+void	swap(t_list **lst)
 {
-	t_list *a;
-	t_list *b;
+	t_list *temp;
 
-	if (argc < 2)
+	if (!lst || !*lst || !(*lst)->next)
 	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	create_list(&a, argc, argv);
-	b = NULL;
-	print_list(b);
-	return (0);
+		write(1, "Error1\n", 7);
+		return;
+	}		
+	temp = (*lst)->next;
+	(*lst)->next = temp->next;
+	temp->next = *lst;
+	*lst = temp;
 }

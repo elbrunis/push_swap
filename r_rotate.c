@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program.c                                          :+:      :+:    :+:   */
+/*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/02/27 13:49:10 by biniesta         ###   ########.fr       */
+/*   Created: 2025/03/01 15:37:59 by biniesta          #+#    #+#             */
+/*   Updated: 2025/03/02 15:30:10 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-int	main(int argc, char **argv)
+void	r_rotate(t_list **lst)
 {
-	t_list *a;
-	t_list *b;
+	t_list	*temp;
+	t_list	*first;
+	t_list	*last;
 
-	if (argc < 2)
+	if (!*lst || !(*lst)->next)
 	{
-		write(1, "Error\n", 6);
-		return (0);
+		write(1, "Error3\n", 7);
+		return ;
 	}
-	create_list(&a, argc, argv);
-	b = NULL;
-	print_list(b);
-	return (0);
+	temp = *lst;
+	while (temp->next != NULL)
+	{
+		last = temp;
+		temp = temp->next;
+	}
+	if (last)
+		last->next = NULL;
+	first = temp;
+	first->next = *lst;
+	*lst = first;
 }
