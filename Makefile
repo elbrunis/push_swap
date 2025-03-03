@@ -6,7 +6,7 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Archivos fuente
-SRCS = program.c list.c \
+SRCS = program.c list.c error.c\
 		movements/swap.c \
 		movements/push.c \
 		movements/rotate.c \

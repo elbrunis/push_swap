@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/02 19:30:37 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:51:39 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
+
 typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
 }					t_list;
 
+// error
+int ft_error(char *str);
 // crea una lista
-void				create_list(t_list **list, int argc, char **argv);
+void	create_list(t_list **list, int argc, char **argv);
 // utils para borrar
 void	print_list(t_list *a, t_list *b);
 
@@ -48,6 +53,5 @@ void	rotate_ab(t_list **a, t_list **b);
 void	r_rotate_a(t_list **a);
 void	r_rotate_b(t_list **b);
 void	r_rotate_ab(t_list **a, t_list **b);
-
 
 #endif

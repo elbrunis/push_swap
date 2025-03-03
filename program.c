@@ -6,11 +6,12 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/03 14:02:02 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:27:22 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void do_moves(t_list **a, t_list **b, char *str)
 {
 	if(ft_strncmp(str, "sa", 2) == 0)
