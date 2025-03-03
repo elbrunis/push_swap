@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_rotate.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 15:37:59 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/02 15:30:10 by biniesta         ###   ########.fr       */
+/*   Created: 2025/02/28 14:57:51 by biniesta          #+#    #+#             */
+/*   Updated: 2025/03/02 17:54:45 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	r_rotate(t_list **lst)
+static void	swap(t_list **lst)
 {
 	t_list	*temp;
-	t_list	*first;
-	t_list	*last;
 
-	if (!*lst || !(*lst)->next)
+	if (!lst || !*lst || !(*lst)->next)
 	{
-		write(1, "Error3\n", 7);
+		write(1, "Error1\n", 7);
 		return ;
 	}
-	temp = *lst;
-	while (temp->next != NULL)
-	{
-		last = temp;
-		temp = temp->next;
-	}
-	if (last)
-		last->next = NULL;
-	first = temp;
-	first->next = *lst;
-	*lst = first;
+	temp = (*lst)->next;
+	(*lst)->next = temp->next;
+	temp->next = *lst;
+	*lst = temp;
 }
+
+void	swap_a(t_list **a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
+void	swap_b(t_list **b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
+}
+

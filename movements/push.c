@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 14:27:38 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/01 15:08:39 by biniesta         ###   ########.fr       */
+/*   Created: 2025/02/27 12:35:33 by biniesta          #+#    #+#             */
+/*   Updated: 2025/03/03 13:35:49 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	rotate(t_list **lst)
+static void	push(t_list **push, t_list **pull)
 {
-	t_list *temp;
-	t_list *first;
+	t_list	*temp;
 
-	if (!*lst || !(*lst)->next)
+	if (!push || !*push)
 	{
-		write(1, "Error2\n", 7);
+		write(1, "Error0\n", 7);
 		return ;
 	}
+	temp = (*push)->next;
+	(*push)->next = *pull;
+	*pull = *push;
+	*push = temp;
+}
 
-	temp = *lst;
-	first = *lst;
-	while (temp->next != NULL)
-		temp = temp->next;
-	*lst = (*lst)->next;
-	first->next = NULL;
-	temp->next = first;
+void	push_a(t_list **a, t_list **b)
+{
+	push(b, a);
+	write(1, "pa\n", 3);
+}
+
+void	push_b(t_list **a, t_list **b)
+{
+	push(a, b);
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:37:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/02/27 12:37:36 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/02 19:32:21 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,25 @@ void	create_list(t_list **list, int argc, char **argv)
 	}
 }
 
-void	print_list(t_list *list)
+void	print_list(t_list *a, t_list *b)
 {
-	while (list)
-	{
-		ft_printf("%d\n", list->data);
-		list = list->next;
-	}
+    while (a || b)
+    {
+        if (a)
+        {
+            ft_printf("%d", a->data);
+            a = a->next;
+        }
+        else
+            ft_printf(" "); // Espacio en blanco si no hay más elementos en a
+
+        ft_printf("\t"); // Tabulación entre las dos columnas
+
+        if (b)
+        {
+            ft_printf("%d", b->data);
+            b = b->next;
+        }
+        ft_printf("\n"); // Nueva línea después de imprimir ambos valores
+    }
 }
