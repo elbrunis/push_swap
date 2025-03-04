@@ -6,56 +6,50 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/03 19:18:29 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/04 12:45:05 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 // IMPORTANTE: Hay que seguir el orden de preferencia para que se ejecute bien
-int	num_of_numbers(t_list **lst) // la que primero se ejecuta
+int	num_of_numbers(t_list *lst) // la que primero se ejecuta
 {
-	t_list *temp;
 	int num;
 
-	temp = *lst;
 	num = 0;
-	while (temp)
+	while (lst)
 	{
-		if ((temp->data >= INT_MIN) && (temp->data <= INT_MAX))
-			num++;
-		else
-			ft_error("Hay un numero no valido"); // finish the program
-		temp = temp->next;
+		num++;
+		lst = lst->next;
 	}
 	return (num);
 }
 
-int	bigguest_int(t_list **lst) // la segunda que se ejecuta
+static int	biggest_int(t_list *lst) // la segunda que se ejecuta
 {
-	t_list	*temp;
-	int		bigguest;
+	int biggest;
 
-	temp = *lst;
-	bigguest = INT_MIN;
-	while (temp)
+	biggest = INT_MIN;
+	while (lst)
 	{
-		if (temp->data > bigguest)
-			bigguest = temp->data;
-		else
-			ft_error("numero muy pequeño");
-		temp = temp->next;
+		if (lst->data > biggest)
+			biggest = lst->data;
+		lst = lst->next;
 	}
-	return (bigguest);
+	return (biggest);
 }
 
-int	bigguest_bits(int bigguest) // la tercera que se ejecuta
+int	biggest_bits(t_list *lst) // la tercera que se ejecuta
 {
+	int biggest;
 	int bits;
-
+	
+	biggest = biggest_int(lst);
 	bits = 0;
-	while (bigguest)
+	while (biggest)
 	{
-		bigguest = bigguest >> 1;
+		biggest = biggest >> 1;
 		bits++;
 	}
 	return (bits);

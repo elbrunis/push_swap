@@ -6,11 +6,11 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Archivos fuente
-SRCS = program.c list.c error.c\
-		movements/swap.c \
-		movements/push.c \
-		movements/rotate.c \
-		movements/r_rotate.c
+SRCS = program.c list.c error.c algorithm.c utils.c\
+        movements/swap.c \
+        movements/push.c \
+        movements/rotate.c \
+        movements/r_rotate.c
 OBJS = $(SRCS:.c=.o)
 
 # Compilador y flags

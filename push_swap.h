@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/03 18:51:39 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:55:18 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ typedef struct s_list
 }					t_list;
 
 // error
-int ft_error(char *str);
+int		ft_error(char *str);
 // crea una lista
 void	create_list(t_list **list, int argc, char **argv);
 // utils para borrar
-void	print_list(t_list *a, t_list *b);
-
-// incluir movimientos
+void	print_list(t_list *a);
+// radix sort
+void	algorithm(t_list **a, t_list **b);
+// utils
+int		num_of_numbers(t_list *lst);
+int		biggest_bits(t_list *lst);
 
 // swap
 void	swap_a(t_list **a);
