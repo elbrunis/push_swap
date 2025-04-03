@@ -1,7 +1,7 @@
 import random
 
 # Generar una lista de números del 1 al 500
-numbers = list(range(1, 1001))
+numbers = list(range(1, 500))
 
 # Desorganizar la lista
 random.shuffle(numbers)

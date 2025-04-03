@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:37:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/04 18:08:43 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/03/28 12:46:03 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void	create_list(t_list **list, int argc, char **argv)
 void	print_list(t_list *a)
 {
 	int i = 0;
-    while (a)
-    {
-        ft_printf("%d ", a->data);
-		if(i == 30)
+	while (a)
+	{
+		ft_printf("%d ", a->data);
+		if (i == 30)
 		{
 			ft_printf("\n");
 			i = 0;
 		}
-        a = a->next;
-    }
+		a = a->next;
+	}
 }

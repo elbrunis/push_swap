@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-NAME = program
+NAME = push_swap
 
 # Directorios
 LIBFT_DIR = libft
