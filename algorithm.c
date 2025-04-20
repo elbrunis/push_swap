@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-static int is_sorted(t_list *a)
+
+int is_sorted(t_list *a)
 {
 	while (a->next)
 	{
@@ -31,12 +32,10 @@ static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 	i = 0;
 	j = 0;
 	moves = 0;
-	ft_printf("n_num: %d\n", n_num);
-	ft_printf("n_bits: %d\n", n_bits);
 	while (i < n_bits)
 	{
 		j = 0;
-		while (j < n_num) // puede haber algo aqui
+		while (j < n_num && !is_sorted(*a))
 		{
 			if (((*a)->data >> i) & 1)
 			{
@@ -56,8 +55,6 @@ static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 			moves++;
 		}
 		i++;
-		if (is_sorted(*a))
-			break ;
 	}
 	ft_printf("moves: %d\n", moves);
 }

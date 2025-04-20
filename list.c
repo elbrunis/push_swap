@@ -18,7 +18,7 @@ static t_list	*new_node(int argv)
 
 	node = (t_list *)malloc(sizeof(t_list));
 	if (!node)
-		ft_error("Error\n");
+		ft_error("malloc failure", NULL, NULL);
 	node->data = argv;
 	node->next = NULL;
 	return (node);
@@ -33,7 +33,9 @@ void	create_list(t_list **list, int argc, char **argv)
 	while (i < argc)
 	{
 		if (*list == NULL)
+		{
 			*list = new_node(ft_atoi(argv[i]));
+		}
 		else
 		{
 			temp = *list;
@@ -42,20 +44,5 @@ void	create_list(t_list **list, int argc, char **argv)
 			temp->next = new_node(ft_atoi(argv[i]));
 		}
 		i++;
-	}
-}
-
-void	print_list(t_list *a)
-{
-	int i = 0;
-	while (a)
-	{
-		ft_printf("%d ", a->data);
-		if (i == 30)
-		{
-			ft_printf("\n");
-			i = 0;
-		}
-		a = a->next;
 	}
 }

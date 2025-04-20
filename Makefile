@@ -1,21 +1,15 @@
 # Nombre del ejecutable
 NAME = push_swap
-
-# Directorios
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-
-# Archivos fuente
-SRCS = program.c list.c error.c algorithm.c utils.c\
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+SRCS = program.c list.c algorithm.c utils.c\
         movements/swap.c \
         movements/push.c \
         movements/rotate.c \
         movements/r_rotate.c
 OBJS = $(SRCS:.c=.o)
-
-# Compilador y flags
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
 
 # Reglas
 all: $(LIBFT) $(NAME)

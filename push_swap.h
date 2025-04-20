@@ -27,7 +27,7 @@ typedef struct s_list
 }					t_list;
 
 // error
-int		ft_error(char *str);
+int		ft_error(char *str, t_list *a, t_list *b);
 // crea una lista
 void	create_list(t_list **list, int argc, char **argv);
 // utils para borrar
@@ -37,7 +37,10 @@ void	algorithm(t_list **a, t_list **b);
 // utils
 int		num_of_numbers(t_list *lst);
 int		biggest_bits(t_list *lst);
+int 	is_sorted(t_list *a);
 
+// memory
+void	free_list(t_list *list);
 // swap
 void	swap_a(t_list **a);
 void	swap_b(t_list **b);
