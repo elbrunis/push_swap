@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/04 14:55:18 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:18:30 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
+//# define INT_MIN -2147483648
+//# define INT_MAX 2147483647
 
 typedef struct s_list
 {
@@ -26,8 +26,9 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-// error
+// error y parsing
 int		ft_error(char *str, t_list *a, t_list *b);
+int		check_argv(int argc, char **argv);
 // crea una lista
 void	create_list(t_list **list, int argc, char **argv);
 // utils para borrar

@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:24:10 by biniesta          #+#    #+#             */
-/*   Updated: 2025/03/28 14:42:07 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:43:06 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int is_sorted(t_list *a)
 	}
 	return (1);
 }
+
 
 static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 {
@@ -54,6 +55,8 @@ static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 			push_a(a, b);
 			moves++;
 		}
+		if(is_sorted(*a))
+			break ;
 		i++;
 	}
 	ft_printf("moves: %d\n", moves);

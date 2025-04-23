@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 21:09:30 by biniesta          #+#    #+#             */
-/*   Updated: 2024/10/05 21:26:37 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/04/22 08:41:55 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_strdup(const char *s)
 	char	*str;
 	size_t	i;
 	char	*st;
-
+	
+	if (!s)
+		return (NULL);
 	st = (char *)s;
 	s_len = (size_t)ft_strlen(st);
 	str = (char *)malloc(sizeof(char) * (s_len + 1));

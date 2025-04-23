@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	check_argv(argc, argv);
 	create_list(&a, argc, argv);
 	if (is_sorted(a))
 		ft_error("stack is sorted", a, NULL);
