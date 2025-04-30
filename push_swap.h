@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/04/23 13:18:30 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:05:53 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int 	is_sorted(t_list *a);
 
 // memory
 void	free_list(t_list *list);
+void	free_array(char **array);
 // swap
 void	swap_a(t_list **a);
 void	swap_b(t_list **b);

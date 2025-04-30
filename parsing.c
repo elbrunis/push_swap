@@ -25,11 +25,33 @@ static int is_digit(char *str)
 	return (0);
 }
 
+static int	check_array(char **array)
+{
+	int	i;
+
+	if (!array)
+		ft_error("no entro", NULL, NULL);
+	i = 0;
+	while (array[i])
+	{
+		if (ft_atol(array[i]) != ft_atoi(array[i]))
+		{
+			ft_error("INT_MIN", NULL, NULL);
+			free_array(array);
+		}
+		i++;
+	}
+	free_array(array);
+	return (0);
+}
+
 int	check_argv(int argc, char **argv)
 {
 	int		i;
 	char	*str;
+	char	**str_array;
 
+	str_array = NULL;
 	str = NULL;
 	i = 1;
 	while(i < argc)
@@ -39,6 +61,11 @@ int	check_argv(int argc, char **argv)
 			ft_error("memory null", NULL, NULL);
 		if(is_digit(str))
 			ft_error("invalid input", NULL, NULL);
+		str_array = ft_split(str,' ');
+		if(!str_array[1])
+			free_array(str_array);
+		else
+			check_array(str_array);
 		free(str);
 	}
 	
