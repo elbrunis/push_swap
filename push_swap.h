@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/04/23 14:05:53 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/04 00:33:34 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 # include "libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 //# define INT_MIN -2147483648
 //# define INT_MAX 2147483647
+typedef struct s_info
+{
+	int		biggest;
+	int		smallest;
+	char	*str;
+	char	**list;
+}			t_info;
 
 typedef struct s_list
 {
@@ -28,7 +36,7 @@ typedef struct s_list
 
 // error y parsing
 int		ft_error(char *str, t_list *a, t_list *b);
-int		check_argv(int argc, char **argv);
+int		check_argv(int argc, char **argv, t_info *info);
 // crea una lista
 void	create_list(t_list **list, int argc, char **argv);
 // utils para borrar

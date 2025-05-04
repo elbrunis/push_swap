@@ -6,16 +6,31 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/03 00:47:36 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/04 00:57:57 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static t_info	*init_struct(void)
+{
+	t_info	*new;
+
+	new = (t_info *)malloc(sizeof(t_info));
+	if (!new)
+		return (NULL);
+	new->biggest = INT_MIN;
+	new->smallest = INT_MAX;
+	new->str = NULL;
+	new->list = NULL;
+	return (new);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	t_info	*info;
 
 	a = NULL;
 	b = NULL;
@@ -24,7 +39,11 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	check_argv(argc, argv);
+	info = init_struct();
+	if (!info)
+		return (1);
+	// free(info);
+	check_argv(argc, argv, info);
 	create_list(&a, argc, argv);
 	if (is_sorted(a))
 		ft_error("stack is sorted", a, NULL);
@@ -32,5 +51,6 @@ int	main(int argc, char **argv)
 	print_list(a);
 	free_list(a);
 	free_list(b);
+	ft_printf("el numero: %d\n", info->biggest);
 	return (0);
 }

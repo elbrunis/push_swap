@@ -1,15 +1,17 @@
 #include "push_swap.h"
 
-// check al the digits are ok
+// check one digit
 static int is_digit(char *str)
 {
 	int	i;
 	int	sign;
- 
+
 	i = 0;
 	sign = 0;
 	while (str[i])
 	{
+		while (str[i] == ' ' || str[i] == '\t')
+			i++;
 		if ((str[i] == '-' || str[i] == '+') && sign == 0)
 		{
 			sign = 1;
@@ -23,71 +25,75 @@ static int is_digit(char *str)
 	return (0);
 }
 
-static int	check_int(char *str)
+static int	check_int(char *str, t_info *info)
 {
-	if (ft_atol(str) != ft_atoi(str)) //vrango int min y el int max
+	int num;
+
+	num = ft_atoi(str);
+	if (ft_atol(str) != num) //vrango int min y el int max
 		return (1);
-	// get_max_min //funcion futura para guardar el numero maximo y el minimo
+	if (num > info->biggest)
+		info->biggest = num;
+	if (num < info->smallest)
+		info->smallest = num;
 	return (0);
 }
 
-static int	check_array(char **array)
+static int	check_list(t_info *info)
 {
 	int	i;
 
-	if (!array)
-		ft_error("no entro", NULL, NULL);
 	i = 0;
-	while (array[i]) // verificacion de el int min
+	while (info->list[i]) // verificacion de el int min
 	{
-		if(is_digit(array[i]))
+		if(is_digit(info->list[i]))
 		{
-			free_array(array);
+			free_array(info->list);
 			ft_error("invalid input", NULL, NULL);
 		}
-		if (check_int(array[i]))
+		if (check_int(info->list[i], info))
 		{
-			free_array(array);
+			free_array(info->list);
 			ft_error("INT_MIN", NULL, NULL);
 		}
 		i++;
 	}
-	free_array(array);
+	free_array(info->list);
 	return (0);
 }
 
-int	check_argv(int argc, char **argv)
+static int	check_array(t_info *info)
+{
+	free_array(info->list);
+	if(is_digit(info->str))
+	{
+		free(info->str);
+		ft_error("invalid input", NULL, NULL);
+	}
+	if (check_int(info->str, info))
+	{
+		free(info->str);
+		ft_error("INT_MIN", NULL, NULL);
+	}
+	return (0);
+}
+
+int	check_argv(int argc, char **argv, t_info *info)
 {
 	int		i;
-	char	*str;
-	char	**str_array;
 
-	str_array = NULL;
-	str = NULL;
 	i = 1;
 	while(i < argc)
 	{
-		str = ft_strdup(argv[i++]);// extraemos el argumento
-		if (!str)
+		info->str = ft_strdup(argv[i++]);// extraemos el argumento
+		if (!info->str)
 			ft_error("memory null", NULL, NULL);
-		str_array = ft_split(str, ' ');
-		if(!str_array[1]) // verificamos si es una string
-		{
-			free_array(str_array);
-			if(is_digit(str))
-			{
-				free(str);
-				ft_error("invalid input", NULL, NULL);
-			}
-			if (check_int(str))
-			{
-				free(str);
-				ft_error("INT_MIN", NULL, NULL);
-			}
-		}
+		info->list = ft_split(info->str, ' ');
+		if(!info->list[1]) // verificamos si es una string
+			check_array(info);
 		else
-			check_array(str_array);
-		free(str);
+			check_list(info);
+		free(info->str);
 	}
 	
 	return (0);

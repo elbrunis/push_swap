@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/04/23 14:00:06 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/04 00:30:53 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	free_list(t_list *list)
 {
 	t_list	*temp;
 
-	if (!list)
-		ft_error("there is no stack to free", NULL, NULL);
+	// if (!list)
+	// 	ft_error("there is no stack to free", NULL, NULL);
 	while (list)
 	{
 		temp = list;
@@ -102,4 +102,5 @@ void	print_list(t_list *a)
 		}
 		a = a->next;
 	}
+	ft_printf("\n");
 }
