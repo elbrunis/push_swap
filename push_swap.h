@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/04 00:33:34 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:07:44 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,27 @@
 
 //# define INT_MIN -2147483648
 //# define INT_MAX 2147483647
-typedef struct s_info
-{
-	int		biggest;
-	int		smallest;
-	char	*str;
-	char	**list;
-}			t_info;
-
 typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_info
+{
+	int		biggest;
+	int		smallest;
+	char	*str;
+	char	**list;
+	t_list	*node;
+}			t_info;
+
 // error y parsing
 int		ft_error(char *str, t_list *a, t_list *b);
 int		check_argv(int argc, char **argv, t_info *info);
 // crea una lista
-void	create_list(t_list **list, int argc, char **argv);
+// void	create_list(t_list **list, int argc, char **argv);
+void	get_number(t_info *info, char *str);
 // utils para borrar
 void	print_list(t_list *a);
 // radix sort

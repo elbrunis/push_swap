@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/04 00:57:57 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:06:57 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static t_info	*init_struct(void)
 	new->smallest = INT_MAX;
 	new->str = NULL;
 	new->list = NULL;
+	new->node = NULL;
 	return (new);
 }
 
@@ -44,7 +45,8 @@ int	main(int argc, char **argv)
 		return (1);
 	// free(info);
 	check_argv(argc, argv, info);
-	create_list(&a, argc, argv);
+	// create_list(&a, argc, argv);
+	a = info->node;
 	if (is_sorted(a))
 		ft_error("stack is sorted", a, NULL);
 	algorithm(&a, &b);

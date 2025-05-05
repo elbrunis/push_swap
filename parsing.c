@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/04 14:26:46 by biniesta          #+#    #+#             */
+/*   Updated: 2025/05/05 20:13:43 by biniesta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // check one digit
@@ -56,6 +68,7 @@ static int	check_list(t_info *info)
 			free_array(info->list);
 			ft_error("INT_MIN", NULL, NULL);
 		}
+		get_number(info, info->list[i]);
 		i++;
 	}
 	free_array(info->list);
@@ -65,7 +78,7 @@ static int	check_list(t_info *info)
 static int	check_array(t_info *info)
 {
 	free_array(info->list);
-	if(is_digit(info->str))
+	if (is_digit(info->str))
 	{
 		free(info->str);
 		ft_error("invalid input", NULL, NULL);
@@ -75,6 +88,7 @@ static int	check_array(t_info *info)
 		free(info->str);
 		ft_error("INT_MIN", NULL, NULL);
 	}
+	get_number(info, info->str);	
 	return (0);
 }
 
@@ -83,7 +97,7 @@ int	check_argv(int argc, char **argv, t_info *info)
 	int		i;
 
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
 		info->str = ft_strdup(argv[i++]);// extraemos el argumento
 		if (!info->str)
@@ -95,6 +109,5 @@ int	check_argv(int argc, char **argv, t_info *info)
 			check_list(info);
 		free(info->str);
 	}
-	
 	return (0);
 }
