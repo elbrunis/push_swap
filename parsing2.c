@@ -6,11 +6,22 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:56:39 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/05 20:26:48 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:46:01 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	is_dupp(t_list *list, int num)
+{
+	while (list)
+	{
+		if (list->data == num)
+			return (1);
+		list = list->next;
+	}
+	return (0);
+}
 
 static t_list	*new_node(int num)
 {
@@ -28,6 +39,8 @@ void	get_number(t_info *info, char *str)
 {
 	t_list *temp;
 
+	if (is_dupp(info->node, ft_atoi(str)))
+		ft_error("is_dup", NULL, NULL);
 	if (!info->node)
 		info->node = new_node(ft_atoi(str));
 	else
