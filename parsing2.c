@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:56:39 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/05 20:46:01 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/06 13:26:56 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static t_list	*new_node(int num)
 	if (!new)
 		return (NULL);
 	new->data = num;
+	new->id = 0;
 	new->next = NULL;
 	return (new);
 }

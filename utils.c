@@ -6,12 +6,12 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/04 00:30:53 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/06 16:05:46 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 static int	biggest_int(t_list *lst) // la segunda que se ejecuta
 {
 	int biggest;
@@ -89,18 +89,36 @@ void	free_array(char **array)
 }
 
 // para testear
-void	print_list(t_list *a)
+void	print_list(t_info *info, t_list *a)
 {
-	int i = 0;
-	while (a)
+	if (info->smallest >= 0)
 	{
-		ft_printf("%d ", a->data);
-		if (i == 30)
+		int i = 0;
+		while (a)
 		{
-			ft_printf("\n");
-			i = 0;
+			ft_printf("%d ", a->data);
+			if (i == 30)
+			{
+				ft_printf("\n");
+				i = 0;
+			}
+			a = a->next;
 		}
-		a = a->next;
+		ft_printf("\n");
 	}
-	ft_printf("\n");
+	else 
+	{
+		int i = 0;
+		while (a)
+		{
+			printf("%ld ", a->id);
+			if (i == 30)
+			{
+				ft_printf("\n");
+				i = 0;
+			}
+			a = a->next;
+		}
+		ft_printf("\n");
+	}
 }
