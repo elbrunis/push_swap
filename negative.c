@@ -6,41 +6,60 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 21:15:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/06 16:03:46 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:55:43 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-// static void	print_list2(t_list *a)
+
+// void	convert_negative(t_info *info)
 // {
-// 	int i = 0;
-// 	while (a)
+// 	long int	diff;
+// 	t_list		*temp;
+
+// 	if (info->smallest >= 0)
+// 		return ;
+// 	diff =  info->smallest * -1;
+// 	temp = info->node;
+// 	while (temp)
 // 	{
-// 		printf("%ld ", a->id);
-// 		if (i == 30)
-// 		{
-// 			ft_printf("\n");
-// 			i = 0;
-// 		}
-// 		a = a->next;
+// 		temp->id = temp->data;
+// 		temp->data = diff +  temp->data;
+// 		temp = temp->next;
 // 	}
-// 	ft_printf("\n");
 // }
-
-void	convert_negative(t_info *info)
+static int count_nodes(t_list *list)
 {
-	long int	diff;
-	t_list		*temp;
+	int	count;
 
-	if (info->smallest >= 0)
-		return ;
-	diff =  info->smallest * -1;
-	temp = info->node;
-	while (temp)
+	count = 0;
+	while (list)
 	{
-		temp->id = temp->data;
-		temp->data = diff +  temp->data;
-		temp = temp->next;
+		list = list->next;
+		count++;
+	}
+	return (count);
+}
+
+void	set_id(t_info *info)
+{
+	t_list	*temp;
+	t_list	*biggest;
+	int		n_nodes;
+
+	n_nodes = count_nodes(info->node);
+	while (n_nodes >= 0)
+	{
+		temp = info->node;
+		biggest = NULL;
+		while (temp)
+		{
+			if (!temp->id && (biggest == NULL || temp->data > biggest->data))
+				biggest = temp;
+			temp = temp->next;
+		}
+		if (biggest)
+			biggest->id = n_nodes;
+		n_nodes--;
 	}
 }

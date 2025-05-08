@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/06 16:05:46 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/07 18:43:36 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	biggest_int(t_list *lst) // la segunda que se ejecuta
 	biggest = INT_MIN;
 	while (lst)
 	{
-		if (lst->data > biggest)
-			biggest = lst->data;
+		if (lst->id > biggest)
+			biggest = lst->id;
 		lst = lst->next;
 	}
 	return (biggest);
@@ -89,36 +89,19 @@ void	free_array(char **array)
 }
 
 // para testear
-void	print_list(t_info *info, t_list *a)
+void	print_list(t_list *a)
 {
-	if (info->smallest >= 0)
+	int i = 0;
+	while (a)
 	{
-		int i = 0;
-		while (a)
+		ft_printf("%d ", a->data);
+		i++;
+		if (i == 30)
 		{
-			ft_printf("%d ", a->data);
-			if (i == 30)
-			{
-				ft_printf("\n");
-				i = 0;
-			}
-			a = a->next;
+			ft_printf("\n");
+			i = 0;
 		}
-		ft_printf("\n");
+		a = a->next;
 	}
-	else 
-	{
-		int i = 0;
-		while (a)
-		{
-			printf("%ld ", a->id);
-			if (i == 30)
-			{
-				ft_printf("\n");
-				i = 0;
-			}
-			a = a->next;
-		}
-		ft_printf("\n");
-	}
+	ft_printf("\n");
 }

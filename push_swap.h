@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/06 16:05:01 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:16:20 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ typedef struct s_info
 // error y parsing
 int		ft_error(char *str, t_list *a, t_list *b);
 int		check_argv(int argc, char **argv, t_info *info);
-void	convert_negative(t_info *info);
+void	set_id(t_info *info);
+// void	convert_negative(t_info *info);
 // crea una lista
 // void	create_list(t_list **list, int argc, char **argv);
 void	get_number(t_info *info, char *str);
 // utils para borrar
-void	print_list(t_info *info, t_list *a);
+void	print_list(t_list *a);
 // radix sort
 void	algorithm(t_list **a, t_list **b);
 // utils

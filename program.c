@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/06 16:05:23 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/07 18:45:45 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	main(int argc, char **argv)
 	a = info->node;
 	if (is_sorted(a))
 		ft_error("stack is sorted", a, NULL);
-	convert_negative(info);
+	set_id(info);
 	algorithm(&a, &b);
-	print_list(info, a);
+	print_list(a);
 	free_list(a);
 	free_list(b);
 	return (0);
