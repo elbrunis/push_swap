@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/10 15:30:54 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 17:49:41 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	biggest_int(t_list *lst) // la segunda que se ejecuta
 {
-	int biggest;
+	int	biggest;
 
 	biggest = INT_MIN;
 	while (lst)
@@ -28,9 +28,9 @@ int	biggest_int(t_list *lst) // la segunda que se ejecuta
 
 int	biggest_bits(t_list *lst) // la tercera que se ejecuta
 {
-	int biggest;
-	int bits;
-	
+	int	biggest;
+	int	bits;
+
 	biggest = biggest_int(lst);
 	bits = 0;
 	while (biggest)
@@ -43,7 +43,7 @@ int	biggest_bits(t_list *lst) // la tercera que se ejecuta
 
 int	num_of_numbers(t_list *lst) // la que primero se ejecuta
 {
-	int num;
+	int	num;
 
 	num = 0;
 	while (lst)

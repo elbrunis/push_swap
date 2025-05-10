@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:56:39 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/10 14:59:43 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:04:31 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_list	*new_node(int num)
 
 void	get_number(t_info *info, char *str)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (is_dupp(info->node, ft_atoi(str)))
 		ft_error(info, NULL);

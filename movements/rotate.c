@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:27:38 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/07 18:45:10 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:43:10 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 static void	rotate(t_list **lst)
 {
-	t_list *temp;
-	t_list *first;
+	t_list	*temp;
+	t_list	*first;
 
 	if (!*lst || !(*lst)->next)
 	{
 		write(1, "Error2\n", 7);
 		return ;
 	}
-
 	temp = *lst;
 	first = *lst;
 	while (temp->next != NULL)

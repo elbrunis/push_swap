@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/10 15:02:34 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:15:33 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	algorithm(t_list **a, t_list **b);
 // utils
 int		num_of_numbers(t_list *lst);
 int		biggest_bits(t_list *lst);
-int 	is_sorted(t_list *a);
+int		is_sorted(t_list *a);
 int		count_nodes(t_list *list);
 int		biggest_int(t_list *lst);
 

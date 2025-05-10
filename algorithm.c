@@ -6,13 +6,13 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:24:10 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/09 13:16:27 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:15:05 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_list *a)
+int	is_sorted(t_list *a)
 {
 	while (a->next)
 	{
@@ -23,9 +23,9 @@ int is_sorted(t_list *a)
 	return (1);
 }
 
-static void sort_three(t_list **a)
+static void	sort_three(t_list **a)
 {
-	int biggest;
+	int	biggest;
 
 	biggest = biggest_int(*a);
 	if ((*a)->id == biggest)
@@ -45,7 +45,7 @@ static void	sort_five(t_list **a, t_list **b)
 	i = 0;
 	while (n_nodes--)
 	{
-		if ((*a)->id == 0 ||(*a)->id == 1)
+		if ((*a)->id == 0 || (*a)->id == 1)
 		{
 			push_b(a, b);
 			i++;
@@ -66,7 +66,7 @@ static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 {
 	int	i;
 	int	j;
-	int moves;
+	int	moves;
 
 	i = 0;
 	j = 0;
@@ -88,13 +88,13 @@ static void	radix_sort(t_list **a, t_list **b, int n_num, int n_bits)
 			}
 			j++;
 		}
-		while(*b)
+		while (*b)
 		{
 			push_a(a, b);
 			moves++;
 		}
-		if(is_sorted(*a))
-		break ;
+		if (is_sorted(*a))
+			break ;
 		i++;
 	}
 	ft_printf("moves: %d\n", moves);
