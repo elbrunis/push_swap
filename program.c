@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/07 18:45:45 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:34:00 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,19 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
+		return (1);
 	info = init_struct();
 	if (!info)
-		return (1);
-	// free(info);
+		ft_error(NULL, NULL);
 	check_argv(argc, argv, info);
-	// create_list(&a, argc, argv);
 	a = info->node;
 	if (is_sorted(a))
-		ft_error("stack is sorted", a, NULL);
+		ft_error(info, NULL);
 	set_id(info);
 	algorithm(&a, &b);
 	print_list(a);
-	free_list(a);
+	info->node = a;
+	free_info(info);
 	free_list(b);
 	return (0);
 }

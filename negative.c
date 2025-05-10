@@ -6,28 +6,12 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 21:15:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/09 13:11:49 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 12:44:08 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	convert_negative(t_info *info)
-// {
-// 	long int	diff;
-// 	t_list		*temp;
-
-// 	if (info->smallest >= 0)
-// 		return ;
-// 	diff =  info->smallest * -1;
-// 	temp = info->node;
-// 	while (temp)
-// 	{
-// 		temp->id = temp->data;
-// 		temp->data = diff +  temp->data;
-// 		temp = temp->next;
-// 	}
-// }
 int	count_nodes(t_list *list)
 {
 	int	count;

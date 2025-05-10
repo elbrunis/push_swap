@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:56:39 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/06 13:26:56 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:59:43 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	get_number(t_info *info, char *str)
 	t_list *temp;
 
 	if (is_dupp(info->node, ft_atoi(str)))
-		ft_error("is_dup", NULL, NULL);
+		ft_error(info, NULL);
 	if (!info->node)
 		info->node = new_node(ft_atoi(str));
 	else

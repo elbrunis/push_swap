@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 14:26:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/05 20:13:43 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:09:00 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	check_int(char *str, t_info *info)
 	int num;
 
 	num = ft_atoi(str);
-	if (ft_atol(str) != num) //vrango int min y el int max
+	if (ft_atol(str) != num)
 		return (1);
 	if (num > info->biggest)
 		info->biggest = num;
@@ -56,58 +56,49 @@ static int	check_list(t_info *info)
 	int	i;
 
 	i = 0;
-	while (info->list[i]) // verificacion de el int min
+	while (info->list[i])
 	{
 		if(is_digit(info->list[i]))
-		{
-			free_array(info->list);
-			ft_error("invalid input", NULL, NULL);
-		}
+			ft_error(info, NULL);
 		if (check_int(info->list[i], info))
-		{
-			free_array(info->list);
-			ft_error("INT_MIN", NULL, NULL);
-		}
+			ft_error(info, NULL);
 		get_number(info, info->list[i]);
 		i++;
 	}
 	free_array(info->list);
+	info->list = NULL;
 	return (0);
 }
 
 static int	check_array(t_info *info)
 {
 	free_array(info->list);
+	info->list = NULL;
 	if (is_digit(info->str))
-	{
-		free(info->str);
-		ft_error("invalid input", NULL, NULL);
-	}
+		ft_error(info, NULL);
 	if (check_int(info->str, info))
-	{
-		free(info->str);
-		ft_error("INT_MIN", NULL, NULL);
-	}
+		ft_error(info, NULL);
 	get_number(info, info->str);	
 	return (0);
 }
 
 int	check_argv(int argc, char **argv, t_info *info)
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		info->str = ft_strdup(argv[i++]);// extraemos el argumento
+		info->str = ft_strdup(argv[i++]);
 		if (!info->str)
-			ft_error("memory null", NULL, NULL);
+			ft_error(info, NULL);
 		info->list = ft_split(info->str, ' ');
-		if(!info->list[1]) // verificamos si es una string
+		if(!info->list[1])
 			check_array(info);
 		else
 			check_list(info);
 		free(info->str);
+		info->str = NULL;
 	}
 	return (0);
 }

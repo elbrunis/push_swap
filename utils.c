@@ -6,12 +6,12 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/08 14:27:19 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:30:54 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	biggest_int(t_list *lst) // la segunda que se ejecuta
 {
 	int biggest;
@@ -54,22 +54,33 @@ int	num_of_numbers(t_list *lst) // la que primero se ejecuta
 	return (num);
 }
 
-int	ft_error(char *str, t_list *a, t_list *b)
+int	ft_error(t_info *info, t_list *b)
 {
-	if (a)
-		free_list(a);
+	if (info)
+		free_info(info);
 	if (b)
 		free_list(b);
-	ft_printf("Error\n%s\n", str);
+	ft_printf("Error\n");
 	exit(1);
+}
+
+void	free_info(t_info *info)
+{
+	if (!info)
+		return ;
+	if (info->str)
+		free(info->str);
+	if (info->list)
+		free_array(info->list);
+	if (info->node)
+		free_list(info->node);
+	free(info);
 }
 
 void	free_list(t_list *list)
 {
 	t_list	*temp;
 
-	// if (!list)
-	// 	ft_error("there is no stack to free", NULL, NULL);
 	while (list)
 	{
 		temp = list;

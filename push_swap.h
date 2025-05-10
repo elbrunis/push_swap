@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:22:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/08 14:27:32 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:02:34 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_info
 }			t_info;
 
 // error y parsing
-int		ft_error(char *str, t_list *a, t_list *b);
+int		ft_error(t_info *info, t_list *b);
 int		check_argv(int argc, char **argv, t_info *info);
 void	set_id(t_info *info);
 // void	convert_negative(t_info *info);
@@ -56,6 +56,7 @@ int		count_nodes(t_list *list);
 int		biggest_int(t_list *lst);
 
 // memory
+void	free_info(t_info *info);
 void	free_list(t_list *list);
 void	free_array(char **array);
 // swap
