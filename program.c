@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:35:42 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/10 15:34:00 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 18:00:05 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(int argc, char **argv)
 		ft_error(info, NULL);
 	set_id(info);
 	algorithm(&a, &b);
-	print_list(a);
 	info->node = a;
 	free_info(info);
 	free_list(b);

@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/10 17:49:41 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/10 18:10:07 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,57 +62,4 @@ int	ft_error(t_info *info, t_list *b)
 		free_list(b);
 	ft_printf("Error\n");
 	exit(1);
-}
-
-void	free_info(t_info *info)
-{
-	if (!info)
-		return ;
-	if (info->str)
-		free(info->str);
-	if (info->list)
-		free_array(info->list);
-	if (info->node)
-		free_list(info->node);
-	free(info);
-}
-
-void	free_list(t_list *list)
-{
-	t_list	*temp;
-
-	while (list)
-	{
-		temp = list;
-		list = list->next;
-		free(temp);
-	}
-}
-
-void	free_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
-}
-
-// para testear
-void	print_list(t_list *a)
-{
-	int i = 0;
-	while (a)
-	{
-		ft_printf("%d ", a->data);
-		i++;
-		if (i == 30)
-		{
-			ft_printf("\n");
-			i = 0;
-		}
-		a = a->next;
-	}
-	ft_printf("\n");
 }

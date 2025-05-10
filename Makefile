@@ -4,7 +4,7 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = program.c parsing2.c algorithm.c utils.c parsing.c negative.c\
+SRCS = program.c parsing2.c algorithm.c utils.c parsing.c negative.c free.c\
         movements/swap.c \
         movements/push.c \
         movements/rotate.c \
