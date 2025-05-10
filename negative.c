@@ -6,7 +6,7 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 21:15:46 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/07 15:55:43 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:11:49 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 // 		temp = temp->next;
 // 	}
 // }
-static int count_nodes(t_list *list)
+int	count_nodes(t_list *list)
 {
 	int	count;
 
@@ -47,7 +47,7 @@ void	set_id(t_info *info)
 	t_list	*biggest;
 	int		n_nodes;
 
-	n_nodes = count_nodes(info->node);
+	n_nodes = count_nodes(info->node) - 1;
 	while (n_nodes >= 0)
 	{
 		temp = info->node;

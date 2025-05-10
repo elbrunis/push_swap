@@ -6,13 +6,13 @@
 /*   By: biniesta <biniesta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 18:27:27 by biniesta          #+#    #+#             */
-/*   Updated: 2025/05/07 18:43:36 by biniesta         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:27:19 by biniesta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-static int	biggest_int(t_list *lst) // la segunda que se ejecuta
+int	biggest_int(t_list *lst) // la segunda que se ejecuta
 {
 	int biggest;
 
