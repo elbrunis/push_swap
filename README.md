@@ -95,11 +95,3 @@ The program outputs the sequence of operations performed and the total move coun
 
 ---
 
-## 🗺 Roadmap
-
-- [ ] Fix reverse-rotate output mnemonics (`rra`/`rrb`/`rrr`)
-- [ ] Add a checker program to validate output
-- [ ] Optimize for small sort cases (3/5 elements)
-
----
-
